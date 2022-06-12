@@ -54,6 +54,7 @@ def take_order():
     #repeat taking order until client is done 
     #display order details
     #display a thank you message
+    
     print("Welcome to Burger Shop")
  
 take_order()
