@@ -1,14 +1,30 @@
-# implement the classes listed below 
+# implement the classes listed below
+
 class FoodItem:
+    price = None
     pass
+
 class Burger(FoodItem):
+    name = ''
+    toppings = []
+    condiments = []
+    bun = None
+    protein = None
+
+    def __init__(self) -> None:
+        super().__init__()
+
     pass
+
 class Drink(FoodItem):
     pass
+
 class Side(FoodItem):
     pass
+
 class Combo(FoodItem):
     pass
+
 class Order:
     pass
  
