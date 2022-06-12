@@ -1,4 +1,21 @@
 from pick import pick
+import json
+
+# import json with menu items and load data into objects
+with open('menu.json', 'r') as f:
+    data = json.load(f)
+
+# print(data['food-item-categories'])
+
+for category in data['food-item-categories']:
+    if category['name'] == 'Burgers':
+        burgers = [category['menu-items']]
+    if category['name'] == 'Sides':
+        sides = [category['menu-items']]
+    if category['name'] == 'Drinks':
+        drinks = [category['menu-items']]
+
+print(burgers[0][0])
 
 # implement the classes listed below
 
@@ -98,4 +115,4 @@ def take_order():
             break
 
 
-take_order()
+# take_order()
