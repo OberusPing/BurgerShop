@@ -13,8 +13,6 @@ for category in data['food-item-categories']:
     if category['name'] == 'Drinks':
         drinks = [category['menu-items']]
 
-print(burgers[0][0])
-
 # implement the classes listed below
 
 
@@ -32,7 +30,7 @@ class FoodItem:
 class Burger(FoodItem):
     condiments = []
 
-    def __init__(self, price: float, name: str, description: str, *condiments) -> None:
+    def __init__(self, price: float, name: str, description: str, condiments: list) -> None:
         super().__init__(price, name, description)
         self.condiments = condiments
 
@@ -41,7 +39,6 @@ class Drink(FoodItem):
     def __init__(self, price: float, name: str, size='small'):
         super(Drink, self).__init__(price, name)
         self.size = size
-
 
     pass
 
@@ -62,29 +59,48 @@ class Order:
     name = ""
     order_price = 0.0
 
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str, order_price: float) -> None:
         self.name = name
+        self.order_price = order_price
 
-    def addItem(self, FoodItem: FoodItem) -> None:
+    def add_item(self, FoodItem: FoodItem) -> None:
         self.food_items.append(FoodItem)
         order_price += FoodItem.price
 
-    def removeItem(self, FoodItem: FoodItem) -> None:
+    def remove_item(self, FoodItem: FoodItem) -> None:
         self.foodItems.remove(FoodItem)
         order_price -= FoodItem.price
 
     def calculate_price(self) -> float:
         return self.order_price
 
+    def return_order(self) -> str:
+        pass
 
-def user_input_burger():
-    b = Burger(option)
+
+def user_input_burger() -> Burger:
+    burger_names = []
+    for burger in burgers[0]:
+        burger_names.append(burger['name'])
 
     # ask user for input and store it in burger object
-    title = 'What burger do you want?'
-    options = ['Chicken Burger', 'Vegan Burger']
-    option, index = pick(options, title)
-    title = 'What size is the drink?'
+    option, index = pick(
+        burger_names, "Please select a burger to add to your order.")
+
+    b_name = burgers[0][index]['name']
+    b_price = burgers[0][index]['price']
+    b_description = burgers[0][index]['description']
+
+    # ask user if they want to add condiments
+    b_condiments = []
+
+    options = pick(["ketchup", "mustard"], "Please select any condiments to add to your burger (press SPACE to mark, ENTER to continue).",
+                   multiselect=True, min_selection_count=0)
+
+    for option in options:
+        b_condiments.append(option[0])
+
+    b = Burger(b_price, b_name, b_description, b_condiments)
 
     return b
 
@@ -110,28 +126,39 @@ def user_input_combo():
 
 def take_order():
     # ask user for name for the order
-    # repeat taking order until client is done
-    # display order details
-    # display a thank you message
     name = input("Welcome to Burger Shop! Please enter your name: ")
-    o = Order(name)
+    o = Order(name, 0.0)
 
+    # repeat taking orders until client is done
     while True:
-        title = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
-        options = ['burger', 'side', 'drink', 'combo']
-        option, index = pick(options, title)
+        order_prompt = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
+        order_options = ['burger', 'side', 'drink', 'combo']
+        option, index = pick(order_options, order_prompt)
 
         match option:
-            case 'burger': o.addItem(user_input_burger())
-            case 'side': o.addItem(user_input_side())
-            case 'drink': o.addItem(user_input_drink())
-            case 'combo': o.addItem(user_input_combo())
+            case 'burger': o.add_item(user_input_burger())
+            case 'side': o.add_item(user_input_burger())
+            case 'side': o.add_item(user_input_side())
+            case 'drink': o.add_item(user_input_drink())
+            case 'combo': o.add_item(user_input_combo())
 
-        loop_exit = input(
-            "Would you like to add more items to your order? (Y/N)").lower()
+        loop_exit_title = "Would you like to add more items to your order, or remove items?"
+        order_options = ['I would like to add more items.',
+                         'I would like to remove an item.', 'I have finished my order']
+        option, index = pick(order_options, loop_exit_title)
 
-        if loop_exit == "n":
-            break
+        match index:
+            case 0:
+                pass
+
+            case 1:
+                option, index = pick(
+                    o.food_items, "Please select the item to remove.")
+
+            case 2:
+                break
+
+    # Display a thank you message and order details
 
 
 take_order()
