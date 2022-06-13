@@ -59,17 +59,16 @@ class Order:
     name = ""
     order_price = 0.0
 
-    def __init__(self, name: str, order_price: float) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
-        self.order_price = order_price
 
     def add_item(self, FoodItem: FoodItem) -> None:
         self.food_items.append(FoodItem)
-        order_price += FoodItem.price
+        self.order_price += FoodItem.price
 
     def remove_item(self, FoodItem: FoodItem) -> None:
         self.foodItems.remove(FoodItem)
-        order_price -= FoodItem.price
+        self.order_price -= FoodItem.price
 
     def calculate_price(self) -> float:
         return self.order_price
@@ -127,7 +126,7 @@ def user_input_combo():
 def take_order():
     # ask user for name for the order
     name = input("Welcome to Burger Shop! Please enter your name: ")
-    o = Order(name, 0.0)
+    o = Order(name)
 
     # repeat taking orders until client is done
     while True:
@@ -142,9 +141,9 @@ def take_order():
             case 'drink': o.add_item(user_input_drink())
             case 'combo': o.add_item(user_input_combo())
 
-        loop_exit_title = "Would you like to add more items to your order, or remove items?"
+        loop_exit_title = "Would you like to add more items to your order, remove items, review your order, or finish your order??"
         order_options = ['I would like to add more items.',
-                         'I would like to remove an item.', 'I have finished my order']
+                         'I would like to remove an item.', 'I would like to review my order.', 'I have finished my order']
         option, index = pick(order_options, loop_exit_title)
 
         match index:
@@ -154,8 +153,13 @@ def take_order():
             case 1:
                 option, index = pick(
                     o.food_items, "Please select the item to remove.")
+                o.remove_item(option)
 
             case 2:
+                print(o.food_items.__str__)
+                input("Press Enter to continue...")
+
+            case 3:
                 break
 
     # Display a thank you message and order details

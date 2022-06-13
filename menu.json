@@ -7,14 +7,14 @@
           {
             "id": "94298",
             "name": "Chicken Burger",
-            "price": "12.50",
+            "price": 12.50,
             "description": "Tender, Spicy and Juicy.",
             "images": []
           },
           {
             "id": "94301",
             "name": "Vegan Burger",
-            "price": "12.50",
+            "price": 12.50,
             "description": "Tofu and bean burger.",
             "images": []
           }
@@ -27,7 +27,7 @@
           {
             "id": "94334",
             "name": "PERi-PERi Wedges (P)",
-            "price": "2.50",
+            "price": 2.50,
             "description": "",
             "images": []
           }
@@ -40,14 +40,14 @@
           {
             "id": "94399",
             "name": "Coke",
-            "price": "2.50",
+            "price": 2.50,
             "description": "",
             "images": []
           },
           {
             "id": "94399",
             "name": "Iced Tea",
-            "price": "2.50",
+            "price": 2.50,
             "description": "",
             "images": []
           }
