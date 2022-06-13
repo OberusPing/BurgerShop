@@ -26,13 +26,14 @@ class FoodItem:
     def __init__(self, price: float, name: str, description: str) -> None:
         self.price = price
         self.name = name
+        self.description = description
 
 
 class Burger(FoodItem):
     condiments = []
 
-    def __init__(self, price: float, name: str, *condiments) -> None:
-        super().__init__(price, name)
+    def __init__(self, price: float, name: str, description: str, *condiments) -> None:
+        super().__init__(price, name, description)
         self.condiments = condiments
 
 
@@ -49,19 +50,23 @@ class Combo(FoodItem):
 
 
 class Order:
-    foodItems = []
+    food_items = []
     name = ""
+    order_price = 0.0
 
     def __init__(self, name: str) -> None:
         self.name = name
 
     def addItem(self, FoodItem: FoodItem) -> None:
-        self.foodItems.append(FoodItem)
+        self.food_items.append(FoodItem)
+        order_price += FoodItem.price
 
     def removeItem(self, FoodItem: FoodItem) -> None:
         self.foodItems.remove(FoodItem)
+        order_price -= FoodItem.price
 
-    def calculatePrice()
+    def calculate_price(self) -> float:
+        return self.order_price
 
 
 def user_input_burger():
