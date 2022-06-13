@@ -5,8 +5,6 @@ import json
 with open('menu.json', 'r') as f:
     data = json.load(f)
 
-# print(data['food-item-categories'])
-
 for category in data['food-item-categories']:
     if category['name'] == 'Burgers':
         burgers = [category['menu-items']]
@@ -23,8 +21,9 @@ print(burgers[0][0])
 class FoodItem:
     price = None
     name = None
+    description = None
 
-    def __init__(self, price: float, name: str) -> None:
+    def __init__(self, price: float, name: str, description: str) -> None:
         self.price = price
         self.name = name
 
@@ -62,11 +61,18 @@ class Order:
     def removeItem(self, FoodItem: FoodItem) -> None:
         self.foodItems.remove(FoodItem)
 
+    def calculatePrice()
+
 
 def user_input_burger():
-    b = Burger()
+    b = Burger(option)
 
     # ask user for input and store it in burger object
+    title = 'What burger do you want?'
+    options = ['Chicken Burger', 'Vegan Burger']
+    option, index = pick(options, title)
+    title = 'What size is the drink?'
+
     return b
 
 
@@ -115,4 +121,4 @@ def take_order():
             break
 
 
-# take_order()
+take_order()
