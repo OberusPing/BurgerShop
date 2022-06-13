@@ -63,11 +63,13 @@ class Combo(Burger, Drink, Side):
     burger = None
     side = None
     drink = None
+    price = 0.0
 
     def __init__(self, burger: Burger, drink: Drink, side: Side) -> None:
         self.burger = burger
         self.drink = drink
         self.side = side
+        self.price = (burger.price + drink.price + side.price)*0.9
 
 
 class Order:
@@ -112,7 +114,8 @@ class Order:
 def user_input_burger() -> Burger:
     burger_names = []
     for burger in burgers:
-        burger_names.append(burger['name'])
+        burger_names.append(
+            f"{burger['name']}: {burger['price']} ({burger['description']})")
 
     condiment_names = []
     for condiment in condiments:
@@ -129,7 +132,7 @@ def user_input_burger() -> Burger:
     # ask user if they want to add condiments
     b_condiments = []
 
-    options = pick(condiment_names, "Please select any condiments to add to your burger (press SPACE to mark, ENTER to continue).",
+    options = pick(condiment_names, "Please select any condiments to add to your burger (press SPACE to mark, ENTER to continue). Multiple condiments can be chosen.",
                    multiselect=True, min_selection_count=0)
 
     for option in options:
@@ -141,36 +144,36 @@ def user_input_burger() -> Burger:
 
 
 def user_input_drink():
-    Totalprice = 0
-    title = "What is your preference for cup size?"
-    Sizes = ['Small', 'Medium', 'Large']
-    size, index = pick(Sizes, title)
-
-    if size == "Small":
-        pass
-    elif size == "Medium":
-        Totalprice += 1
-    else:
-        Totalprice += 2
-
+    total_price = 0
     drink_names = []
+
     for drink in drinks:
-        drink_names.append(drink['name'])
+        drink_names.append(f"{drink['name']}: {drink['price']}")
 
     name, index = pick(
         drink_names, "Please select a drink to add to your order.")
 
-    Totalprice += float(drinks[index]['price'])
+    total_price += float(drinks[index]['price'])
     description = drinks[index]['description']
 
-    d = Drink(Totalprice, name, size, description)
+    size, index = pick(['Small', 'Medium (+ $1)', 'Large (+ $2)'],
+                       "What is your preference for cup size?")
+
+    if size == "Small":
+        pass
+    elif size == "Medium":
+        total_price += 1
+    else:
+        total_price += 2
+    d = Drink(total_price, name, size, description)
     return d
 
 
 def user_input_side():
     side_names = []
     for side in sides:
-        side_names.append(side['name'])
+        side_names.append(
+            f"{side['name']}: {side['price']} ({side['description']})")
 
     name, index = pick(
         side_names, "Please select a side dish to add to your order.")
@@ -210,6 +213,7 @@ def take_order():
     name = input("Welcome to Burger Shop! Please enter your name: ")
     o = Order(name)
     o.add_to_order()
+
     # repeat taking orders until client is done
     while True:
         loop_exit_title = "Would you like to add more items to your order, remove items, review your order, or finish your order??"
