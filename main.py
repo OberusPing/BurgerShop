@@ -97,6 +97,17 @@ class Order:
             print(f"{item.name}: {item.price} ({item.description})\n")
         print(f"Current total price: {self.order_price}")
 
+    def add_to_order(self) -> None:
+        order_prompt = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
+        order_options = ['burger', 'side', 'drink', 'combo']
+        option, index = pick(order_options, order_prompt)
+
+        match option:
+            case 'burger':  self.add_item(user_input_burger())
+            case 'side':    self.add_item(user_input_side())
+            case 'drink':   self.add_item(user_input_drink())
+            case 'combo':   self.add_item(user_input_combo())
+
 
 def user_input_burger() -> Burger:
     burger_names = []
@@ -198,19 +209,9 @@ def take_order():
     # ask user for name for the order
     name = input("Welcome to Burger Shop! Please enter your name: ")
     o = Order(name)
-
+    o.add_to_order()
     # repeat taking orders until client is done
     while True:
-        order_prompt = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
-        order_options = ['burger', 'side', 'drink', 'combo']
-        option, index = pick(order_options, order_prompt)
-
-        match option:
-            case 'burger':  o.add_item(user_input_burger())
-            case 'side':    o.add_item(user_input_side())
-            case 'drink':   o.add_item(user_input_drink())
-            case 'combo':   o.add_item(user_input_combo())
-
         loop_exit_title = "Would you like to add more items to your order, remove items, review your order, or finish your order??"
         order_options = ['I would like to add more items.',
                          'I would like to remove an item.', 'I would like to review my order.', 'I have finished my order']
@@ -218,10 +219,10 @@ def take_order():
 
         match index:
             case 0:
-                pass
+                o.add_to_order()
 
             case 1:
-                o.remove_item(option)
+                o.remove_item()
 
             case 2:
                 o.review_order()
@@ -233,6 +234,8 @@ def take_order():
         # Check automatically if the current list of food items can be put in a combo
 
     # Display a thank you message and order details
+    o.review_order()
+    print("\nThank you for shopping at the Burger Shop!")
 
 
 take_order()
