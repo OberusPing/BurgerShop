@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+
+r"""
+__author__  Team 6
+__date__ 2022/06/
+
+"""
 from pick import pick
 import json
 
@@ -38,16 +45,16 @@ class Burger(FoodItem):
 
 
 class Drink(FoodItem):
-    def __init__(self, price: float, name: str, size='small'):
-        super(Drink, self).__init__(price, name)
+    def __init__(self, price: float, name: str, description: str, size='small'):
+        super(Drink, self).__init__(price, name, description)
         self.size = size
 
     pass
 
 
 class Side(FoodItem):
-    def __init__(self, price: float, name: str):
-        super(Drink, self).__init__(price, name)
+    def __init__(self, price: float, name: str, description: str):
+        super(Side, self).__init__(price, name, description)
 
     pass
 
@@ -123,14 +130,45 @@ def user_input_burger() -> Burger:
 
 
 def user_input_drink():
-    d = Drink()
-    # ask user for input and store it in drink object
+    Totalprice = 0
+    title = "What is your preference for cup size?"
+    Sizes = ['Small', 'Medium', 'Large']
+    size, index = pick(Sizes, title)
+
+    if size == "Small":
+        pass
+    elif size == "Medium":
+        Totalprice += 1
+    else:
+        Totalprice += 2
+
+    drink_names = []
+    for drink in drinks:
+        drink_names.append(drink['name'])
+
+    name, index = pick(
+        drink_names, "Please select a drink to add to your order.")
+
+    Totalprice += float(drinks[index]['price'])
+    description = drinks[index]['description']
+
+    d = Drink(Totalprice, name, size, description)
     return d
 
 
 def user_input_side():
-    s = Side()
-    # ask user for input and store it in side object
+    side_names = []
+    for side in sides:
+        side_names.append(side['name'])
+
+    name, index = pick(
+        side_names, "Please select a side dish to add to your order.")
+
+    price = float(sides[index]['price'])
+    description = sides[index]['description']
+
+    s = Side(price, name, description)
+
     return s
 
 
