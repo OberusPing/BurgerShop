@@ -39,6 +39,13 @@
             "images": []
           },
           {
+            "id": "23463",
+            "name": "Curly Fries",
+            "price": "2.5",
+            "description": "",
+            "images": []
+          },
+          {
             "id": "26564",
             "name": "Poutine",
             "price": "3",
