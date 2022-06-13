@@ -38,10 +38,18 @@ class Burger(FoodItem):
 
 
 class Drink(FoodItem):
+    def __init__(self, price: float, name: str, size='small'):
+        super(Drink, self).__init__(price, name)
+        self.size = size
+
+
     pass
 
 
 class Side(FoodItem):
+    def __init__(self, price: float, name: str):
+        super(Drink, self).__init__(price, name)
+
     pass
 
 
