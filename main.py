@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-r"""
+"""
 __author__  Team 6
 __date__ 2022/06/
 
@@ -49,14 +49,10 @@ class Drink(FoodItem):
         super(Drink, self).__init__(price, name, description)
         self.size = size
 
-    pass
-
 
 class Side(FoodItem):
     def __init__(self, price: float, name: str, description: str):
         super(Side, self).__init__(price, name, description)
-
-    pass
 
 
 class Combo(Burger, Drink, Side):
@@ -84,11 +80,16 @@ class Order:
         self.food_items.append(FoodItem)
         self.order_price += FoodItem.price
 
+    def get_item_name(item): return item.name
+
     def remove_item(self) -> None:
-        item, index = pick(
-            self.food_items, "Please select the item to remove.")
-        self.foodItems.remove(item)
-        self.order_price -= item.price
+        item_names = []
+        for item in self.food_items:
+            item_names.append(item.name)
+
+        item, index = pick(item_names, "Please select the item to remove.")
+        self.order_price -= self.food_items[index].price
+        del self.food_items[index]
 
     def calculate_price(self) -> float:
         return self.order_price
