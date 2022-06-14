@@ -75,7 +75,6 @@ class Combo(Burger, Drink, Side):
         self.description = "A delicious combo!"
         self.price = float("{:.2f}".format((burger.price + drink.price + side.price)*0.9))
 
-
 class Order:
     food_items = []
     name = ""
