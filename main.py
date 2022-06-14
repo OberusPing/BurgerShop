@@ -143,7 +143,8 @@ class Order:
         print(
             f"                                 Subtotal = {self.order_price}$")
         print("--------------------------------------------------------------------------")
-        print("----------------Thank you for shopping at the Burger Shop!----------------")
+        print(
+            f"----------------Thank you, {self.name}, for shopping at the Burger Shop!----------------")
         print("--------------------------------------------------------------------------")
 
 
@@ -229,6 +230,9 @@ def user_input_side():
 def user_input_combo():
     # ask user for input and store it in combo object
     # a combo must include one burger, one side, and one drink
+    os.system('cls||clear')
+    print("You will be prompted to select a burger, a drink and a side to make this combo. ")
+    input("Press Enter to continue...")
 
     b = user_input_burger()
 
