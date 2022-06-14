@@ -10,7 +10,7 @@ import pandas as pd
 from tabulate import tabulate
 from datetime import datetime
 import json
-from json2html import *
+#from json2html import *
 import os
 
 # import json with menu items and load data into objects
@@ -74,7 +74,9 @@ class Combo(Burger, Drink, Side):
         self.side = side
         self.name = f"{burger.name}, {side.name}, {drink.name}"
         self.description = "A delicious combo!"
-        self.price = float("{:.2f}".format((burger.price + drink.price + side.price)*0.9))
+        self.price = float("{:.2f}".format(
+            (burger.price + drink.price + side.price)*0.9))
+
 
 class Order:
     food_items = []
@@ -145,20 +147,25 @@ class Order:
         print(tabulate(df, tablefmt="pipe", numalign="center",
                        headers=['       Name       ', '      Quantity      ', '     Price     ']))
         print("--------------------------------------------------------------------------")
-        print(f"                                 Subtotal = {self.order_price}$")
-        print(f"                          Subtotal after promotion= {order_price_promo}$")
+        print(
+            f"                                 Subtotal = {self.order_price}$")
+        print(
+            f"                          Subtotal after promotion= {order_price_promo}$")
         print("--------------------------------------------------------------------------")
-        print(f"            Thank you for shopping at the Burger Shop {self.name}!")
+        print(
+            f"            Thank you for shopping at the Burger Shop {self.name}!")
         print("--------------------------------------------------------------------------")
 
     def promo_code(self) -> None:
         promo = "abc123"
-        response, idx = pick(['Yes', 'No'], "Do you want to use your promo code?")
+        response, idx = pick(
+            ['Yes', 'No'], "Do you want to use your promo code?")
         while True:
             if idx == 0:
                 in_promo = input("Please enter Promo Code: ").lower()
                 if promo != in_promo:
-                    response, idx = pick(['Yes', 'No'], "Sorry, Promo Code does not exist, do you want to enter again")
+                    response, idx = pick(
+                        ['Yes', 'No'], "Sorry, Promo Code does not exist, do you want to enter again")
                     continue
                 else:
                     return True
@@ -166,8 +173,6 @@ class Order:
             else:
                 return False
                 break
-
-
 
 
 def user_input_burger() -> Burger:
