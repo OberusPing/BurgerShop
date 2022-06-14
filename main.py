@@ -6,6 +6,9 @@ __date__ 2022/06/
 
 """
 from pick import pick
+import pandas as pd
+from tabulate import tabulate
+from datetime import datetime
 import json
 import os
 
@@ -115,6 +118,32 @@ class Order:
             case 'side':    self.add_item(user_input_side())
             case 'drink':   self.add_item(user_input_drink())
             case 'combo':   self.add_item(user_input_combo())
+
+    def build_receipt(self) -> None:
+        now = datetime.now()
+        df = pd.DataFrame(data, columns=['Name', 'Quantity', 'Price'])
+        for item in self.food_items:
+            if ((df['Name'] == item.name.split(':')[0]) & (df['Price'] == item.price)).any():
+                df['Quantity'][((df['Name'] == item.name.split(':')[0]) & (df['Price'] == item.price))] += 1
+            else:
+                df = pd.concat(
+                    [pd.DataFrame({'Name': [item.name.split(':')[0]], 'Quantity': [1], 'Price': [item.price]}),
+                     df.loc[:]]).reset_index(drop=True)
+
+
+        print("--------------------------------------------------------------------------")
+        print("-------------------WELCOME TO Data Diggers Burger Shop--------------------")
+        print(f"                                 {now.strftime('%d/%m/%Y')}")
+        print(f"                                  {now.strftime('%H:%M:%S')}")
+        print("--------------------------------------------------------------------------")
+
+        print(tabulate(df, tablefmt="pipe", numalign="center",
+                       headers=['       Name       ', '      Quantity      ', '     Price     ']))
+        print("--------------------------------------------------------------------------")
+        print(f"                                 Subtotal = {self.order_price}$")
+        print("--------------------------------------------------------------------------")
+        print("----------------Thank you for shopping at the Burger Shop!----------------")
+        print("--------------------------------------------------------------------------")
 
 
 def user_input_burger() -> Burger:
@@ -250,7 +279,7 @@ def take_order():
 
     # Display a thank you message and order details
     o.review_order()
-    print("\nThank you for shopping at the Burger Shop!")
+    o.build_receipt()
 
 
 take_order()
