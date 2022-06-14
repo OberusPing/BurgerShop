@@ -10,6 +10,7 @@ import pandas as pd
 from tabulate import tabulate
 from datetime import datetime
 import json
+#from json2html import *
 import os
 
 
@@ -76,7 +77,9 @@ class Combo(Burger, Drink, Side):
         self.side = side
         self.name = f"{burger.name}, {side.name}, {drink.name}"
         self.description = "A delicious combo!"
-        self.price = float("{:.2f}".format((burger.price + drink.price + side.price)*0.9))
+        self.price = float("{:.2f}".format(
+            (burger.price + drink.price + side.price)*0.9))
+
 
 class Order:
     food_items = []
@@ -145,6 +148,13 @@ class Order:
                     [pd.DataFrame({'Name': [item.name.split(':')[0]], 'Quantity': [1], 'Price': [item.price]}),
                      df.loc[:]]).reset_index(drop=True)
 
+        if self.promo_code():
+            order_price_promo = float('{:.2f}'.format((self.order_price)*0.85))
+        else:
+            order_price_promo = self.order_price
+
+        os.system('cls||clear')
+
         print("--------------------------------------------------------------------------")
         print("-------------------WELCOME TO Data Diggers Burger Shop--------------------")
         print(f"                                 {now.strftime('%d/%m/%Y')}")
@@ -156,10 +166,30 @@ class Order:
         print("--------------------------------------------------------------------------")
         print(
             f"                                 Subtotal = {self.order_price}$")
+        print(
+            f"                          Subtotal after promotion= {order_price_promo}$")
         print("--------------------------------------------------------------------------")
         print(
-            f"----------------Thank you, {self.name}, for shopping at the Burger Shop!----------------")
+            f"            Thank you for shopping at the Burger Shop {self.name}!")
         print("--------------------------------------------------------------------------")
+
+    def promo_code(self) -> None:
+        promo = "abc123"
+        response, idx = pick(
+            ['Yes', 'No'], "Do you want to use your promo code?")
+        while True:
+            if idx == 0:
+                in_promo = input("Please enter Promo Code: ").lower()
+                if promo != in_promo:
+                    response, idx = pick(
+                        ['Yes', 'No'], "Sorry, Promo Code does not exist! Do you want to try again?")
+                    continue
+                else:
+                    return True
+                    break
+            else:
+                return False
+                break
 
 
 def user_input_secret_item() -> FoodItem:
@@ -318,4 +348,5 @@ def take_order():
     o.build_receipt()
 
 
-take_order()
+if __name__ == "__main__":
+    take_order()
