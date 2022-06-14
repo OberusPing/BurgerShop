@@ -7,6 +7,7 @@ __date__ 2022/06/
 """
 from pick import pick
 import json
+import os
 
 # import json with menu items and load data into objects
 with open('menu.json', 'r') as f:
@@ -56,15 +57,19 @@ class Side(FoodItem):
 
 
 class Combo(Burger, Drink, Side):
+    name = ""
     burger = None
     side = None
     drink = None
     price = 0.0
+    description = ""
 
     def __init__(self, burger: Burger, drink: Drink, side: Side) -> None:
         self.burger = burger
         self.drink = drink
         self.side = side
+        self.name = f"{burger.name}, {side.name}, {drink.name}"
+        self.description = "A delicious combo!"
         self.price = (burger.price + drink.price + side.price)*0.9
 
 
@@ -145,28 +150,31 @@ def user_input_burger() -> Burger:
 
 
 def user_input_drink():
-    total_price = 0
     drink_names = []
-
     for drink in drinks:
-        drink_names.append(f"{drink['name']}: {drink['price']}")
+        drink_names.append(
+            f"{drink['name']}: {drink['price']}")
 
     name, index = pick(
         drink_names, "Please select a drink to add to your order.")
 
-    total_price += float(drinks[index]['price'])
     description = drinks[index]['description']
+    d_name = drinks[index]['name']
+    d_price = drinks[index]['price']
 
-    size, index = pick(['Small', 'Medium (+ $1)', 'Large (+ $2)'],
-                       "What is your preference for cup size?")
+    size_desc, index = pick(['Small', 'Medium (+ $1)', 'Large (+ $2)'],
+                            "What is your preference for cup size?")
 
-    if size == "Small":
-        pass
-    elif size == "Medium":
-        total_price += 1
+    if index == 0:
+        size = 'Small'
+    elif index == 1:
+        d_price += 1
+        size = 'Medium'
     else:
-        total_price += 2
-    d = Drink(total_price, name, size, description)
+        size = 'Large'
+        d_price += 2
+
+    d = Drink(d_price, d_name, size, description)
     return d
 
 
@@ -176,13 +184,14 @@ def user_input_side():
         side_names.append(
             f"{side['name']}: {side['price']} ({side['description']})")
 
-    name, index = pick(
+    options, index = pick(
         side_names, "Please select a side dish to add to your order.")
 
+    s_name = sides[index]['name']
     price = float(sides[index]['price'])
     description = sides[index]['description']
 
-    s = Side(price, name, description)
+    s = Side(price, s_name, description)
 
     return s
 
@@ -217,6 +226,7 @@ def take_order():
 
     # repeat taking orders until client is done
     while True:
+        os.system('cls||clear')
         loop_exit_title = "Would you like to add more items to your order, remove items, review your order, or finish your order??"
         order_options = ['I would like to add more items.',
                          'I would like to remove an item.', 'I would like to review my order.', 'I have finished my order']

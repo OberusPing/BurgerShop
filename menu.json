@@ -27,21 +27,21 @@
           {
             "id": "94334",
             "name": "PERi-PERi Wedges",
-            "price": "2.50",
+            "price": 2.50,
             "description": "",
             "images": []
           },
           {
             "id": "26563",
             "name": "Fries",
-            "price": "2",
+            "price": 2,
             "description": "",
             "images": []
           },
           {
             "id": "23463",
             "name": "Curly Fries",
-            "price": "2.5",
+            "price": 2.5,
             "description": "",
             "images": []
           },
@@ -55,7 +55,7 @@
           {
             "id": "26565",
             "name": "Onion Rings",
-            "price": "2.5",
+            "price": 2.5,
             "description": "",
             "images": []
           }
@@ -68,42 +68,42 @@
           {
             "id": "94332",
             "name": "Glass of Water",
-            "price": "0",
+            "price": 0,
             "description": "",
             "images": []
           },
           {
             "id": "94699",
             "name": "Coke",
-            "price": "2.50",
+            "price": 2.50,
             "description": "",
             "images": []
           },
           {
             "id": "92332",
             "name": "Bottle of Water",
-            "price": "2.5",
+            "price": 2.5,
             "description": "",
             "images": []
           },
           {
             "id": "97232",
             "name": "Coffee",
-            "price": "2.0",
+            "price": 2.0,
             "description": "",
             "images": []
           },
           {
             "id": "70332",
             "name": "Tea",
-            "price": "2.0",
+            "price": 2.0,
             "description": "",
             "images": []
           },
           {
             "id": "94512",
             "name": "Iced Tea",
-            "price": "2.5",
+            "price": 2.5,
             "description": "",
             "images": []
           }
