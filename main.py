@@ -6,6 +6,11 @@ __date__ 2022/06/
 
 """
 from pick import pick
+import pandas as pd
+from tabulate import tabulate
+from datetime import datetime
+
+
 import json
 
 # import json with menu items and load data into objects
@@ -21,8 +26,6 @@ for category in data['food-item-categories']:
         drinks = category['menu-items']
     if category['name'] == 'Condiments':
         condiments = category['menu-items']
-
-# implement the classes listed below
 
 
 class FoodItem:
@@ -49,14 +52,11 @@ class Drink(FoodItem):
         super(Drink, self).__init__(price, name, description)
         self.size = size
 
-    pass
-
 
 class Side(FoodItem):
     def __init__(self, price: float, name: str, description: str):
         super(Side, self).__init__(price, name, description)
 
-    pass
 
 
 class Combo(Burger, Drink, Side):
@@ -109,6 +109,31 @@ class Order:
             case 'side':    self.add_item(user_input_side())
             case 'drink':   self.add_item(user_input_drink())
             case 'combo':   self.add_item(user_input_combo())
+
+    def build_receipt(self) -> None:
+        now = datetime.now()
+        df = pd.DataFrame(data, columns=['Name', 'Quantity', 'Price'])
+        for item in self.food_items:
+            if ((df['Name'] == item.name.split(':')[0]) & (df['Price'] == item.price)).any():
+                df['Quantity'][((df['Name'] == item.name.split(':')[0]) & (df['Price'] == item.price))] +=1
+            else:
+                df = pd.concat([pd.DataFrame({'Name': [item.name.split(':')[0]], 'Quantity':[1], 'Price': [item.price]}), df.loc[:]]).reset_index(drop=True)
+
+
+
+        print("--------------------------------------------------------------------------")
+        print("-------------------WELCOME TO Data Diggers Burger Shop--------------------")
+        print(f"                                 {now.strftime('%d/%m/%Y')}")
+        print(f"                                  {now.strftime('%H:%M:%S')}")
+        print("--------------------------------------------------------------------------")
+
+        print(tabulate(df, tablefmt="pipe",numalign= "center", headers=['       Name       ',  '      Quantity      ' ,'     Price     ']))
+        print("--------------------------------------------------------------------------")
+        print(f"                                 Subtotal = {self.order_price}$")
+        print("--------------------------------------------------------------------------")
+        print("----------------Thank you for shopping at the Burger Shop!----------------")
+        print("--------------------------------------------------------------------------")
+
 
 
 def user_input_burger() -> Burger:
@@ -208,6 +233,7 @@ def user_input_combo():
     return c
 
 
+
 def take_order():
     # ask user for name for the order
     name = input("Welcome to Burger Shop! Please enter your name: ")
@@ -239,7 +265,7 @@ def take_order():
 
     # Display a thank you message and order details
     o.review_order()
-    print("\nThank you for shopping at the Burger Shop!")
+    o.build_receipt()
 
 
 take_order()
