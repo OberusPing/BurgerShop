@@ -5,12 +5,14 @@ __author__  Team 6
 __date__ 2022/06/
 
 """
-from pick import pick
+from pick import pick, Picker
 import pandas as pd
 from tabulate import tabulate
 from datetime import datetime
 import json
+#from json2html import *
 import os
+
 
 # import json with menu items and load data into objects
 with open('menu.json', 'r') as f:
@@ -25,6 +27,8 @@ for category in data['food-item-categories']:
         drinks = category['menu-items']
     if category['name'] == 'Condiments':
         condiments = category['menu-items']
+    if category['name'] == 'Secret Menu':
+        secret_menu = category['menu-items']
 
 # implement the classes listed below
 
@@ -73,12 +77,15 @@ class Combo(Burger, Drink, Side):
         self.side = side
         self.name = f"{burger.name}, {side.name}, {drink.name}"
         self.description = "A delicious combo!"
-        self.price = float("{:.2f}".format((burger.price + drink.price + side.price)*0.9))
+        self.price = float("{:.2f}".format(
+            (burger.price + drink.price + side.price)*0.9))
+
 
 class Order:
     food_items = []
     name = ""
     order_price = 0.0
+    repeat_secret = True
 
     def __init__(self, name: str) -> None:
         self.name = name
@@ -108,15 +115,30 @@ class Order:
         print(f"Current total price: {self.order_price}")
 
     def add_to_order(self) -> None:
+        self.repeat_secret = True
         order_prompt = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
         order_options = ['burger', 'side', 'drink', 'combo']
-        option, index = pick(order_options, order_prompt)
+
+        picker = Picker(order_options, order_prompt)
+
+        def secret_menu(picker):
+            if self.repeat_secret:
+                self.repeat_secret = False
+                order_options.append('Secret menu item!')
+            return None
+
+        picker.register_custom_handler(ord('h'), secret_menu)
+
+        option, index = picker.start()
+
+        #option, index = pick(order_options, order_prompt)
 
         match option:
             case 'burger':  self.add_item(user_input_burger())
             case 'side':    self.add_item(user_input_side())
             case 'drink':   self.add_item(user_input_drink())
             case 'combo':   self.add_item(user_input_combo())
+            case 'Secret menu item!': self.add_item(user_input_secret_item())
 
     def build_receipt(self) -> None:
         now = datetime.now()
@@ -130,6 +152,13 @@ class Order:
                     [pd.DataFrame({'Name': [item.name.split(':')[0]], 'Quantity': [1], 'Price': [item.price]}),
                      df.loc[:]]).reset_index(drop=True)
 
+        if self.promo_code():
+            order_price_promo = float('{:.2f}'.format((self.order_price)*0.85))
+        else:
+            order_price_promo = self.order_price
+
+        os.system('cls||clear')
+
         print("--------------------------------------------------------------------------")
         print("-------------------WELCOME TO Data Diggers Burger Shop--------------------")
         print(f"                                 {now.strftime('%d/%m/%Y')}")
@@ -141,9 +170,48 @@ class Order:
         print("--------------------------------------------------------------------------")
         print(
             f"                                 Subtotal = {self.order_price}$")
+        print(
+            f"                          Subtotal after promotion= {order_price_promo}$")
         print("--------------------------------------------------------------------------")
-        print("----------------Thank you for shopping at the Burger Shop!----------------")
+        print(
+            f"            Thank you for shopping at the Burger Shop {self.name}!")
         print("--------------------------------------------------------------------------")
+
+    def promo_code(self) -> None:
+        promo = "abc123"
+        response, idx = pick(
+            ['Yes', 'No'], "Do you want to use your promo code?")
+        while True:
+            if idx == 0:
+                in_promo = input("Please enter Promo Code: ").lower()
+                if promo != in_promo:
+                    response, idx = pick(
+                        ['Yes', 'No'], "Sorry, Promo Code does not exist! Do you want to try again?")
+                    continue
+                else:
+                    return True
+                    break
+            else:
+                return False
+                break
+
+
+def user_input_secret_item() -> FoodItem:
+    secret_names = []
+    for secret in secret_menu:
+        secret_names.append(
+            f"{secret['name']}: {secret['price']} ({secret['description']})")
+
+    option, index = pick(
+        secret_names, "Please select a secret menu item to add to your order. Don't tell your friends about this!")
+
+    secret_name = secret_menu[index]['name']
+    secret_price = secret_menu[index]['price']
+    secret_description = secret_menu[index]['description']
+
+    se = FoodItem(secret_price, secret_name, secret_description)
+
+    return se
 
 
 def user_input_burger() -> Burger:
@@ -228,6 +296,9 @@ def user_input_side():
 def user_input_combo():
     # ask user for input and store it in combo object
     # a combo must include one burger, one side, and one drink
+    os.system('cls||clear')
+    print("You will be prompted to select a burger, a drink and a side to make this combo. ")
+    input("Press Enter to continue...")
 
     b = user_input_burger()
 
@@ -281,4 +352,5 @@ def take_order():
     o.build_receipt()
 
 
-take_order()
+if __name__ == "__main__":
+    take_order()
