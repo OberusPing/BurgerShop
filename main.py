@@ -85,6 +85,7 @@ class Order:
     food_items = []
     name = ""
     order_price = 0.0
+    repeat_secret = True
 
     def __init__(self, name: str) -> None:
         self.name = name
@@ -114,13 +115,16 @@ class Order:
         print(f"Current total price: {self.order_price}")
 
     def add_to_order(self) -> None:
+        self.repeat_secret = True
         order_prompt = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
         order_options = ['burger', 'side', 'drink', 'combo']
 
         picker = Picker(order_options, order_prompt)
 
         def secret_menu(picker):
-            order_options.append('Secret menu item!')
+            if self.repeat_secret:
+                self.repeat_secret = False
+                order_options.append('Secret menu item!')
             return None
 
         picker.register_custom_handler(ord('h'), secret_menu)
