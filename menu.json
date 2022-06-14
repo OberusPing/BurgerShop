@@ -5,17 +5,59 @@
         "name": "Burgers",
         "menu-items": [
           {
+            "id": "91301",
+            "name": "Classic Burger",
+            "price": 12.00,
+            "description": "Thick and juicy 1/2 pound angus beef char-grilled burger.",
+            "images": []
+          },
+          {
+            "id": "91303",
+            "name": "Reaper Burger",
+            "price": 15.00,
+            "description": "Our SPICY thick and juicy 1/2 pound char-grilled burger served on a toasted bun with your choice of sides. This burger is NOT for the faint of heart. Served with an 8oz glass milk",
+            "images": []
+          },
+          {
+            "id": "91302",
+            "name": "Mission Burger",
+            "price": 15.00,
+            "description": "Cream Co. Organic Beef Brisket and Chuck 1/2 Pound Buger served on a warm bun with your choice of toppings.",
+            "images": []
+          },
+          {
+            "id": "91305",
+            "name": "Southern Comfort",
+            "price": 14.00,
+            "description": "Eastern Carolina style pulled pork served on a warm bun. Slaw served on the side.",
+            "images": []
+          },
+          {
             "id": "94298",
-            "name": "Chicken Burger",
+            "name": "Grilled Chicken Burger",
             "price": 12.50,
-            "description": "Tender, Spicy and Juicy.",
+            "description": "Tender char-grilled chicken breast seasoned to perfection served on a toasted bun with your choice of toppings.",
+            "images": []
+          },
+          {
+            "id": "94298",
+            "name": "Buttermilk Fried Chicken Burger",
+            "price": 14.50,
+            "description": "Chicken breast marninated overnight in buttermilk marinade, breaded with house seasonings, and fried until a juicy inside and crispy outside.",
             "images": []
           },
           {
             "id": "94301",
-            "name": "Vegan Burger",
+            "name": "SuperFree Burger (vg/v)",
             "price": 12.50,
-            "description": "Tofu and bean burger.",
+            "description": "Our Vegan Burger- A patty made with sweet potatoes, roasted mushrooms, walnuts, and seeds. Add your choice of toppings",
+            "images": []
+          },
+          {
+            "id": "94302",
+            "name": "Classic Vegan Burger (vg/v)",
+            "price": 12.50,
+            "description": "Seasoned Impossible burger.",
             "images": []
           }
         ]
@@ -28,35 +70,42 @@
             "id": "94334",
             "name": "PERi-PERi Wedges",
             "price": 2.50,
-            "description": "",
+            "description": "Freshly cut roasted potato wedges tossed in fresh garlic and house peri peri sauce.",
             "images": []
           },
           {
             "id": "26563",
             "name": "Fries",
             "price": 2,
-            "description": "",
+            "description": "Freshly made boardwalk-style fries, cooked in pure, cholesterol-free, 100% peanut oil. Cut fresh and cooked twice. Firm on the outside and mashed potato on the inside.",
             "images": []
           },
           {
             "id": "23463",
-            "name": "Curly Fries",
+            "name": "Cajun Fries",
             "price": 2.5,
-            "description": "",
+            "description": "Freshly made boardwalk-style fries, cooked in pure, cholesterol-free, 100% peanut oil, and then showered with a heavy dose of Cajun spice. Cut fresh and cooked twice. Firm on the outside and mashed potato on the inside. ",
             "images": []
           },
           {
             "id": "26564",
             "name": "Poutine",
             "price": "3",
-            "description": "",
+            "description": "Our ode to Quebec-Freshly made boardwalk-style fries and cheese curds topped with house gravy.",
             "images": []
           },
           {
             "id": "26565",
             "name": "Onion Rings",
             "price": 2.5,
-            "description": "",
+            "description": "Our house beer-battered onion rings served with our signature house sauce.",
+            "images": []
+          },
+          {
+            "id": "26565",
+            "name": "Garden Salad",
+            "price": 2,
+            "description": "Our garden salad is made of crisp butter lettuce, leafy greens, sliced red onins, shredded carrots, cherry tomatoes, and croutons.",
             "images": []
           }
         ]
@@ -75,7 +124,35 @@
           {
             "id": "94699",
             "name": "Coke",
-            "price": 2.50,
+            "price": 1.50,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "94689",
+            "name": "Sprite",
+            "price": 1.50,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "94679",
+            "name": "Dr. Pepper",
+            "price": 1.50,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "94512",
+            "name": "Sweet Tea",
+            "price": 1.5,
+            "description": "Southern Style Sweet Tea",
+            "images": []
+          },
+          {
+            "id": "94699",
+            "name": "Freshly Squeezed Lemonade",
+            "price": 2.25,
             "description": "",
             "images": []
           },
@@ -88,22 +165,64 @@
           },
           {
             "id": "97232",
-            "name": "Coffee",
+            "name": "Larry's Beans Premium Coffee",
             "price": 2.0,
             "description": "",
             "images": []
           },
           {
             "id": "70332",
-            "name": "Tea",
-            "price": 2.0,
+            "name": "HotTea",
+            "price": 1.50,
             "description": "",
             "images": []
           },
           {
-            "id": "94512",
-            "name": "Iced Tea",
-            "price": 2.5,
+            "id": "90512",
+            "name": "New Belgium Fat Tire Amber Ale",
+            "price": 3.5,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "91512",
+            "name": "DrewDog Clockwork Tangerine Citrus Session IPA",
+            "price": 3.5,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "91516",
+            "name": "Sierra Nevada Hazy Little Thing IPA",
+            "price": 3.5,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "91519",
+            "name": "Narragansett Lager",
+            "price": 3.5,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "91520",
+            "name": "Night Shift Whirpool Pale Ale",
+            "price": 3.5,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "91521",
+            "name": "Lagunitas IPNA",
+            "price": 2.75,
+            "description": "Non-Alchoholic",
+            "images": []
+          },
+          {
+            "id": "91522",
+            "name": "Uncle Scott's Root Beer",
+            "price": 2.25,
             "description": "",
             "images": []
           }
@@ -117,27 +236,76 @@
           {
             "id": "94214",
             "name": "Ketchup",
-            "price": 0.50,
+            "price": 0,
             "description": "",
             "images": []
           },
           {
             "id": "14121",
             "name": "Mustard",
-            "price": 2.50,
+            "price": 0,
             "description": "",
             "images": []
           },
           {
-            "id": "14121",
+            "id": "14126",
+            "name": "Mayo",
+            "price": 0,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "14124",
+            "name": "Honey BBQ Sauce",
+            "price": 0,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "14129",
+            "name": "Frank's Hot Sauce",
+            "price": 0,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "14125",
+            "name": "K's Sweet-n-Spicy Sauce (vg/v)",
+            "price": 0.50,
+            "description": "Chef K's Sweet-n-Spicy Sauce. Warning, this sauce is H-O-T!",
+            "images": []
+          },
+          {
+            "id": "14125",
+            "name": "Chipotle Ranch",
+            "price": 0.50,
+            "description": "Our chipoltle ranch dressng perfect for fries, onion rings, or on a burger!",
+            "images": []
+          },
+          {
+            "id": "14126",
+            "name": "Horseradish Aioli",
+            "price": 0.50,
+            "description": "Our medium-spiced horseradish ailoi (fancy for mayo) perfect for fries, onion rings, or on a burger!",
+            "images": []
+          },
+          {
+            "id": "14122",
             "name": "Grilled Onions",
             "price": 0.50,
             "description": "",
             "images": []
           },
           {
-            "id": "14121",
-            "name": "Jalapeno",
+            "id": "14123",
+            "name": "Jalapeños",
+            "price": 0.50,
+            "description": "",
+            "images": []
+          },
+          {
+            "id": "14123",
+            "name": "Jalapeños",
             "price": 0.50,
             "description": "",
             "images": []
