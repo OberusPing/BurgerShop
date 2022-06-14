@@ -124,12 +124,12 @@ class Order:
         df = pd.DataFrame(data, columns=['Name', 'Quantity', 'Price'])
         for item in self.food_items:
             if ((df['Name'] == item.name.split(':')[0]) & (df['Price'] == item.price)).any():
-                df['Quantity'][((df['Name'] == item.name.split(':')[0]) & (df['Price'] == item.price))] += 1
+                df['Quantity'][((df['Name'] == item.name.split(
+                    ':')[0]) & (df['Price'] == item.price))] += 1
             else:
                 df = pd.concat(
                     [pd.DataFrame({'Name': [item.name.split(':')[0]], 'Quantity': [1], 'Price': [item.price]}),
                      df.loc[:]]).reset_index(drop=True)
-
 
         print("--------------------------------------------------------------------------")
         print("-------------------WELCOME TO Data Diggers Burger Shop--------------------")
@@ -140,7 +140,8 @@ class Order:
         print(tabulate(df, tablefmt="pipe", numalign="center",
                        headers=['       Name       ', '      Quantity      ', '     Price     ']))
         print("--------------------------------------------------------------------------")
-        print(f"                                 Subtotal = {self.order_price}$")
+        print(
+            f"                                 Subtotal = {self.order_price}$")
         print("--------------------------------------------------------------------------")
         print("----------------Thank you for shopping at the Burger Shop!----------------")
         print("--------------------------------------------------------------------------")
@@ -278,7 +279,6 @@ def take_order():
         # Check automatically if the current list of food items can be put in a combo
 
     # Display a thank you message and order details
-    o.review_order()
     o.build_receipt()
 
 
