@@ -138,6 +138,8 @@ class Order:
         else:
             order_price_promo = self.order_price
 
+        os.system('cls||clear')
+
         print("--------------------------------------------------------------------------")
         print("-------------------WELCOME TO Data Diggers Burger Shop--------------------")
         print(f"                                 {now.strftime('%d/%m/%Y')}")
@@ -165,7 +167,7 @@ class Order:
                 in_promo = input("Please enter Promo Code: ").lower()
                 if promo != in_promo:
                     response, idx = pick(
-                        ['Yes', 'No'], "Sorry, Promo Code does not exist, do you want to enter again")
+                        ['Yes', 'No'], "Sorry, Promo Code does not exist! Do you want to try again?")
                     continue
                 else:
                     return True
@@ -308,9 +310,6 @@ def take_order():
 
     # Display a thank you message and order details
     o.build_receipt()
-
-
-# take_order()
 
 
 if __name__ == "__main__":
