@@ -143,6 +143,26 @@
             "images": []
           }
         ]
+      },
+      {
+        "id": "26576",
+        "name": "Secret Menu",
+        "menu-items": [
+          {
+            "id": "94298",
+            "name": "Secret Menu Item #1",
+            "price": 300,
+            "description": "How did you get access to this! >:O",
+            "images": []
+          },
+          {
+            "id": "94301",
+            "name": "Secret Menu Item #2",
+            "price": 400.50,
+            "description": "You shouldn't be seeing this!!",
+            "images": []
+          }
+        ]
       }
     ]
   }

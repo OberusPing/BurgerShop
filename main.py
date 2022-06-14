@@ -5,12 +5,13 @@ __author__  Team 6
 __date__ 2022/06/
 
 """
-from pick import pick
+from pick import pick, Picker
 import pandas as pd
 from tabulate import tabulate
 from datetime import datetime
 import json
 import os
+
 
 # import json with menu items and load data into objects
 with open('menu.json', 'r') as f:
@@ -25,6 +26,8 @@ for category in data['food-item-categories']:
         drinks = category['menu-items']
     if category['name'] == 'Condiments':
         condiments = category['menu-items']
+    if category['name'] == 'Secret Menu':
+        secret_menu = category['menu-items']
 
 # implement the classes listed below
 
@@ -110,13 +113,25 @@ class Order:
     def add_to_order(self) -> None:
         order_prompt = "What would you like to add to your order? Please select from the following: burger, side, drink, or combo."
         order_options = ['burger', 'side', 'drink', 'combo']
-        option, index = pick(order_options, order_prompt)
+
+        picker = Picker(order_options, order_prompt)
+
+        def secret_menu(picker):
+            order_options.append('Secret menu item!')
+            return None
+
+        picker.register_custom_handler(ord('h'), secret_menu)
+
+        option, index = picker.start()
+
+        #option, index = pick(order_options, order_prompt)
 
         match option:
             case 'burger':  self.add_item(user_input_burger())
             case 'side':    self.add_item(user_input_side())
             case 'drink':   self.add_item(user_input_drink())
             case 'combo':   self.add_item(user_input_combo())
+            case 'Secret menu item!': self.add_item(user_input_secret_item())
 
     def build_receipt(self) -> None:
         now = datetime.now()
@@ -145,6 +160,24 @@ class Order:
         print(
             f"----------------Thank you, {self.name}, for shopping at the Burger Shop!----------------")
         print("--------------------------------------------------------------------------")
+
+
+def user_input_secret_item() -> FoodItem:
+    secret_names = []
+    for secret in secret_menu:
+        secret_names.append(
+            f"{secret['name']}: {secret['price']} ({secret['description']})")
+
+    option, index = pick(
+        secret_names, "Please select a secret menu item to add to your order. Don't tell your friends about this!")
+
+    secret_name = secret_menu[index]['name']
+    secret_price = secret_menu[index]['price']
+    secret_description = secret_menu[index]['description']
+
+    se = FoodItem(secret_price, secret_name, secret_description)
+
+    return se
 
 
 def user_input_burger() -> Burger:
