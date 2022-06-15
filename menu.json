@@ -29,17 +29,12 @@
             "description": "Tender char-grilled chicken breast seasoned to perfection and served on a toasted bun with your choice of toppings."
           },
           {
-            "name": "Buttermilk Fried Chicken Burger",
-            "price": 14.50,
-            "description": "Buttermilk soaked fried chicken with house seasonings served on a toasted bun with your choice of toppings."
-          },
-          {
-            "name": "SuperFree Burger (vg/v)",
+            "name": "SuperFree Burger(vg/v)",
             "price": 12.50,
             "description": "Our Vegan Burger: A patty made with sweet potatoes, roasted mushrooms, walnuts, and seeds. Add your choice of toppings"
           },
           {
-            "name": "Classic Vegan Burger (vg/v)",
+            "name": "Classic Vegan Burger",
             "price": 12.50,
             "description": "Seasoned Impossible burger."
           }
@@ -114,7 +109,7 @@
             "description": "Southern Style Sweet Tea"
           },
           {
-            "name": "Freshly Squeezed Lemonade",
+            "name": "Fresh Lemonade",
             "price": 2.25,
             "description": ""
           },
@@ -124,37 +119,12 @@
             "description": ""
           },
           {
-            "name": "Larry's Beans Premium Coffee",
-            "price": 2.0,
-            "description": ""
-          },
-          {
             "name": "Hot Tea",
             "price": 1.50,
             "description": ""
           },
           {
-            "name": "New Belgium Fat Tire Amber Ale",
-            "price": 3.5,
-            "description": ""
-          },
-          {
-            "name": "DrewDog Clockwork Tangerine Citrus Session IPA",
-            "price": 3.5,
-            "description": ""
-          },
-          {
-            "name": "Sierra Nevada Hazy Little Thing IPA",
-            "price": 3.5,
-            "description": ""
-          },
-          {
             "name": "Narragansett Lager",
-            "price": 3.5,
-            "description": ""
-          },
-          {
-            "name": "Night Shift Whirlpool Pale Ale",
             "price": 3.5,
             "description": ""
           },
@@ -164,7 +134,7 @@
             "description": "Non-Alcoholic"
           },
           {
-            "name": "Uncle Scott's Root Beer",
+            "name": "Root Beer",
             "price": 2.25,
             "description": ""
           }
