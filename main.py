@@ -10,7 +10,6 @@ import pandas as pd
 from tabulate import tabulate
 from datetime import datetime
 import json
-#from json2html import *
 import os
 
 
@@ -27,10 +26,11 @@ for category in data['food-item-categories']:
         drinks = category['menu-items']
     if category['name'] == 'Condiments':
         condiments = category['menu-items']
+    if category['name'] == 'Toppings':
+        toppings = category['menu-items']
     if category['name'] == 'Secret Menu':
         secret_menu = category['menu-items']
 
-# implement the classes listed below
 
 
 class FoodItem:
@@ -46,10 +46,12 @@ class FoodItem:
 
 class Burger(FoodItem):
     condiments = []
+    toppings = []
 
-    def __init__(self, price: float, name: str, description: str, condiments: list) -> None:
-        super().__init__(price, name, description)
+    def __init__(self, price: float, name: str, description: str, condiments: list, toppings: list) -> None:
+        super(Burger, self).__init__(price, name, description)
         self.condiments = condiments
+        self.toppings = toppings
 
 
 class Drink(FoodItem):
@@ -130,8 +132,6 @@ class Order:
         picker.register_custom_handler(ord('h'), secret_menu)
 
         option, index = picker.start()
-
-        #option, index = pick(order_options, order_prompt)
 
         match option:
             case 'burger':  self.add_item(user_input_burger())
@@ -216,6 +216,7 @@ def user_input_secret_item() -> FoodItem:
 
 def user_input_burger() -> Burger:
     burger_names = []
+    b_price = 0
     for burger in burgers:
         burger_names.append(
             f"{burger['name']}: {burger['price']} ({burger['description']})")
@@ -224,24 +225,48 @@ def user_input_burger() -> Burger:
     for condiment in condiments:
         condiment_names.append(condiment['name'])
 
+    topping_names = []
+    for topping in toppings:
+        topping_names.append(topping['name'])
+
+
+
+
     # ask user for input and store it in burger object
     option, index = pick(
         burger_names, "Please select a burger to add to your order.")
 
     b_name = burgers[index]['name']
-    b_price = burgers[index]['price']
+    b_price += burgers[index]['price']
     b_description = burgers[index]['description']
 
     # ask user if they want to add condiments
     b_condiments = []
 
-    options = pick(condiment_names, "Please select any condiments to add to your burger (press SPACE to mark, ENTER to continue). Multiple condiments can be chosen.",
+    options_c= pick(condiment_names, "Please select any condiments to add to your burger (press SPACE to mark, ENTER to continue). Multiple condiments can be chosen.",
                    multiselect=True, min_selection_count=0)
 
-    for option in options:
-        b_condiments.append(option[0])
 
-    b = Burger(b_price, b_name, b_description, b_condiments)
+
+
+    for option in options_c:
+        b_condiments.append(option[0])
+        b_price += condiments[option[1]]['price']
+
+
+    # ask user if they want to add toppings
+    b_toppings = []
+    options_t = pick(topping_names,
+                   "Please select any toppings to add to your burger (press SPACE to mark, ENTER to continue). Multiple toppings can be chosen.",
+                   multiselect=True, min_selection_count=0)
+
+    for option in options_t:
+        b_toppings.append(option[0])
+        b_price += toppings[option[1]]['price']
+
+
+
+    b = Burger(b_price, b_name, b_description, b_condiments, b_toppings)
 
     return b
 
