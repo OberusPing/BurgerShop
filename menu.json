@@ -1,445 +1,323 @@
 {
     "food-item-categories": [
       {
-        "id": "26576",
         "name": "Burgers",
         "menu-items": [
           {
-            "id": "91301",
             "name": "Classic Burger",
             "price": 12.00,
-            "description": "Thick and juicy 1/2 pound angus beef char-grilled burger.",
-            "images": []
+            "description": "Thick and juicy 1/2 pound angus beef char-grilled burger."
           },
           {
-            "id": "91303",
             "name": "Reaper Burger",
             "price": 15.00,
-            "description": "Our SPICY thick and juicy 1/2 pound char-grilled burger served on a toasted bun with your choice of sides. This burger is NOT for the faint of heart. Served with an 8oz glass milk",
-            "images": []
+            "description": "Our SPICY thick and juicy 1/2 pound char-grilled burger served on a toasted bun with your choice of sides. This burger is NOT for the faint of heart. Served with an 8oz glass milk"
           },
           {
-            "id": "91302",
             "name": "Mission Burger",
             "price": 15.00,
-            "description": "Cream Co. Organic Beef Brisket and Chuck 1/2 Pound Burger served on a warm bun with your choice of toppings.",
-            "images": []
+            "description": "Cream Co. Organic Beef Brisket and Chuck 1/2 Pound Burger served on a warm bun with your choice of toppings."
           },
           {
-            "id": "91305",
             "name": "Southern Comfort",
             "price": 14.00,
-            "description": "Eastern Carolina-Style pulled pork served on a warm bun. Slaw served on the side.",
-            "images": []
+            "description": "Eastern Carolina-Style pulled pork served on a warm bun. Slaw served on the side."
           },
           {
-            "id": "94298",
             "name": "Grilled Chicken Burger",
             "price": 12.50,
-            "description": "Tender char-grilled chicken breast seasoned to perfection and served on a toasted bun with your choice of toppings.",
-            "images": []
+            "description": "Tender char-grilled chicken breast seasoned to perfection and served on a toasted bun with your choice of toppings."
           },
           {
-            "id": "94298",
             "name": "Buttermilk Fried Chicken Burger",
             "price": 14.50,
-            "description": "Buttermilk soaked fried chicken with house seasonings served on a toasted bun with your choice of toppings.",
-            "images": []
+            "description": "Buttermilk soaked fried chicken with house seasonings served on a toasted bun with your choice of toppings."
           },
           {
-            "id": "94301",
             "name": "SuperFree Burger (vg/v)",
             "price": 12.50,
-            "description": "Our Vegan Burger: A patty made with sweet potatoes, roasted mushrooms, walnuts, and seeds. Add your choice of toppings",
-            "images": []
+            "description": "Our Vegan Burger: A patty made with sweet potatoes, roasted mushrooms, walnuts, and seeds. Add your choice of toppings"
           },
           {
-            "id": "94302",
             "name": "Classic Vegan Burger (vg/v)",
             "price": 12.50,
-            "description": "Seasoned Impossible burger.",
-            "images": []
+            "description": "Seasoned Impossible burger."
           }
         ]
       },
       {
-        "id": "26562",
         "name": "Sides",
         "menu-items": [
           {
-            "id": "94334",
             "name": "PERi-PERi Wedges",
             "price": 2.50,
-            "description": "Freshly cut roasted potato wedges tossed in fresh garlic and house peri peri sauce.",
-            "images": []
+            "description": "Freshly cut roasted potato wedges tossed in fresh garlic and house peri peri sauce."
           },
           {
-            "id": "26563",
             "name": "Fries",
             "price": 2,
-            "description": "Freshly made boardwalk-style fries, cut fresh and cooked twice. Firm on the outside and mashed potato on the inside.",
-            "images": []
+            "description": "Freshly made boardwalk-style fries, cut fresh and cooked twice. Firm on the outside and mashed potato on the inside."
           },
           {
-            "id": "23463",
             "name": "Cajun Fries",
             "price": 2.5,
-            "description": "Freshly made boardwalk-style fries showered with a heavy dose of Cajun spice. Cut fresh and cooked twice. Firm on the outside and mashed potato on the inside. ",
-            "images": []
+            "description": "Freshly made boardwalk-style fries showered with a heavy dose of Cajun spice. Cut fresh and cooked twice. Firm on the outside and mashed potato on the inside. "
           },
           {
-            "id": "26564",
             "name": "Poutine",
             "price": "3",
-            "description": "Our Ode to Quebec: Freshly made boardwalk-style fries and cheese curds topped with house gravy.",
-            "images": []
+            "description": "Our Ode to Quebec: Freshly made boardwalk-style fries and cheese curds topped with house gravy."
           },
           {
-            "id": "26565",
             "name": "Onion Rings",
             "price": 2.5,
-            "description": "Our house beer-battered onion rings served with our signature house sauce.",
-            "images": []
+            "description": "Our house beer-battered onion rings served with our signature house sauce."
           },
           {
-            "id": "26565",
             "name": "Garden Salad",
             "price": 2,
-            "description": "Our garden salad consists of crisp butter lettuce, leafy greens, sliced red onions, shredded carrots, cherry tomatoes, and croutons.",
-            "images": []
+            "description": "Our garden salad consists of crisp butter lettuce, leafy greens, sliced red onions, shredded carrots, cherry tomatoes, and croutons."
           },
           {
-            "id": "26560",
             "name": "Slaw",
             "price": "1.25",
-            "description": "Our southern-style coleslaw",
-            "images": []
+            "description": "Our southern-style coleslaw"
           }
         ]
       },
       {
-        "id": "26600",
         "name": "Drinks",
         "menu-items": [
           {
-            "id": "94332",
             "name": "Glass of Water",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94699",
             "name": "Coke",
             "price": 1.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94689",
             "name": "Sprite",
             "price": 1.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94679",
             "name": "Dr. Pepper",
             "price": 1.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94512",
             "name": "Sweet Tea",
             "price": 1.5,
-            "description": "Southern Style Sweet Tea",
-            "images": []
+            "description": "Southern Style Sweet Tea"
           },
           {
-            "id": "94699",
             "name": "Freshly Squeezed Lemonade",
             "price": 2.25,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "92332",
             "name": "Bottle of Water",
             "price": 2.5,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "97232",
             "name": "Larry's Beans Premium Coffee",
             "price": 2.0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "70332",
             "name": "Hot Tea",
             "price": 1.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "90512",
             "name": "New Belgium Fat Tire Amber Ale",
             "price": 3.5,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "91512",
             "name": "DrewDog Clockwork Tangerine Citrus Session IPA",
             "price": 3.5,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "91516",
             "name": "Sierra Nevada Hazy Little Thing IPA",
             "price": 3.5,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "91519",
             "name": "Narragansett Lager",
             "price": 3.5,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "91520",
             "name": "Night Shift Whirlpool Pale Ale",
             "price": 3.5,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "91521",
             "name": "Lagunitas IPNA",
             "price": 2.75,
-            "description": "Non-Alcoholic",
-            "images": []
+            "description": "Non-Alcoholic"
           },
           {
-            "id": "91522",
             "name": "Uncle Scott's Root Beer",
             "price": 2.25,
-            "description": "",
-            "images": []
+            "description": ""
           }
 
         ]
       },
       {
-        "id": "45103",
         "name": "Condiments",
         "menu-items": [
           {
-            "id": "94214",
             "name": "Ketchup",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14121",
             "name": "Mustard",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14126",
             "name": "Mayo",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14124",
             "name": "Honey BBQ Sauce",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14129",
             "name": "Frank's Hot Sauce",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14125",
             "name": "K's Sweet-n-Spicy Sauce (vg/v)",
             "price": 0.50,
-            "description": "Chef K's Sweet-n-Spicy Sauce. Warning, this sauce is H-O-T!",
-            "images": []
+            "description": "Chef K's Sweet-n-Spicy Sauce. Warning, this sauce is H-O-T!"
           },
           {
-            "id": "14125",
             "name": "Chipotle Ranch",
             "price": 0.50,
-            "description": "Our chipotle ranch dressing perfect for fries, onion rings, or on a burger!",
-            "images": []
+            "description": "Our chipotle ranch dressing perfect for fries, onion rings, or on a burger!"
           },
           {
-            "id": "14126",
             "name": "Horseradish Aioli",
             "price": 0.50,
-            "description": "Our medium-spiced horseradish aioli (fancy for mayo) perfect for fries, onion rings, or on a burger!",
-            "images": []
+            "description": "Our medium-spiced horseradish aioli (fancy for mayo) perfect for fries, onion rings, or on a burger!"
           }          
         ]
       },
       {
-        "id": "24689",
         "name": "Toppings",
         "menu-items": [
           {
-            "id": "14598",
             "name": "Butter Lettuce",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94301",
             "name": "Tomato",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94301",
             "name": "Fresh Onions",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "93301",
             "name": "American Cheese",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "93303",
             "name": "Cheddar Cheese",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "93306",
             "name": "Pepper Jack Cheese",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "94301",
             "name": "Swiss Cheese",
             "price": 0,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14122",
             "name": "Grilled Onions",
             "price": 0.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14123",
             "name": "Jalapeños",
             "price": 0.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14301",
             "name": "Sautéed Mushrooms",
             "price": 0.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "14801",
             "name": "Applewood Smoked Bacon",
             "price": 1.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "16301",
             "name": "Jalapeño Bacon",
             "price": 1.50,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "16201",
             "name": "Guacamole",
             "price": 1.00,
-            "description": "",
-            "images": []
+            "description": ""
           },
           {
-            "id": "16301",
             "name": "Marzie's Way",
             "price": 1.50,
-            "description": "Lettuce, Tomato, Guacamole, and Chipotle Ranch Dressing",
-            "images": []
+            "description": "Lettuce, Tomato, Guacamole, and Chipotle Ranch Dressing"
           },
           {
-            "id": "16401",
             "name": "Club Style",
             "price": 1.50,
-            "description": "Applewood Smoked Bacon, Butter Lettuce, Tomato, and Mayo",
-            "images": []
+            "description": "Applewood Smoked Bacon, Butter Lettuce, Tomato, and Mayo"
           },
           {
-            "id": "16501",
             "name": "Alley's Way",
             "price": 1.50,
-            "description": "Grilled Onions, Sautéed Mushrooms, and Jalapeños",
-            "images": []
+            "description": "Grilled Onions, Sautéed Mushrooms, and Jalapeños"
           }
         ]
       },
       {
-        "id": "26576",
         "name": "Secret Menu",
         "menu-items": [
           {
-            "id": "94298",
             "name": "Secret Menu Item #1",
             "price": 15.00,
-            "description": "How did you get access to this! >:O Since you are here, try our Jucy Lucy! 1/2 pound angus beef burger stuffed with cheddar cheese and topped with grilled onoins and our secret sauce. ",
-            "images": []
+            "description": "How did you get access to this! >:O Since you are here, try our Jucy Lucy! 1/2 pound angus beef burger stuffed with cheddar cheese and topped with grilled onoins and our secret sauce. "
           },
           {
-            "id": "94301",
             "name": "Secret Menu Item #2",
             "price": 17.00,
-            "description": "You shouldn't be seeing this!! But since you are, have a Millionaire Burger. Seasonsed 1/2 pound angus beef burger topped with muesnster cheese and millionaire bacon.",
-            "images": []
+            "description": "You shouldn't be seeing this!! But since you are, have a Millionaire Burger. Seasonsed 1/2 pound angus beef burger topped with muesnster cheese and millionaire bacon."
           },
           {
-            "id": "94901",
             "name": "Secret Menu Item #3",
             "price": 17.00,
-            "description": "Our best kept secret...the Achyuth Special. A one pound seared lamb burger topped with butter lettuce, red onion, and our secret aioli. ",
-            "images": []
+            "description": "Our best kept secret...the Achyuth Special. A one pound seared lamb burger topped with butter lettuce, red onion, and our secret aioli. "
           }
         ]
       }

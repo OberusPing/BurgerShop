@@ -5,6 +5,7 @@ __author__  Team 6
 __date__ 2022/06/
 
 """
+from json2html import json2html
 from pick import pick, Picker
 import pandas as pd
 from tabulate import tabulate
@@ -16,6 +17,11 @@ import os
 # import json with menu items and load data into objects
 with open('menu.json', 'r') as f:
     data = json.load(f)
+    scan_output = json2html.convert(json=data)
+    html_report = "./menu.html"
+    with open(html_report, 'w') as handle:
+        handle.write(str(scan_output))
+
 
 for category in data['food-item-categories']:
     if category['name'] == 'Burgers':
