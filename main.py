@@ -38,7 +38,6 @@ for category in data['food-item-categories']:
         secret_menu = category['menu-items']
 
 
-
 class FoodItem:
     price = None
     name = None
@@ -166,7 +165,7 @@ class Order:
         os.system('cls||clear')
 
         print("--------------------------------------------------------------------------------------------------------------------")
-        print("-----------------------------------------WELCOME TO Data Dining Burger Shop-----------------------------------------")
+        print("--------------------------------------------WELCOME TO Craft Burger House-------------------------------------------")
         print(f"                                                     {now.strftime('%d/%m/%Y')}")
         print(f"                                                      {now.strftime('%H:%M:%S')}")
         print("--------------------------------------------------------------------------------------------------------------------")
@@ -180,10 +179,10 @@ class Order:
             f"                                           Subtotal after promotion= {order_price_promo}$")
         print("--------------------------------------------------------------------------------------------------------------------")
         print(
-            f"                                       Thank you for shopping from our Burger Shop {self.name}!")
+            f"                                       Thank you for Dinning at CBH '{self.name}' !")
         print("--------------------------------------------------------------------------------------------------------------------")
 
-    def promo_code(self) -> None:
+    def promo_code(self) -> bool:
         promo = "abc123"
         response, idx = pick(
             ['Yes', 'No'], "Do you want to use your promo code?")
@@ -196,10 +195,8 @@ class Order:
                     continue
                 else:
                     return True
-                    break
             else:
                 return False
-                break
 
 
 def user_input_secret_item() -> FoodItem:
